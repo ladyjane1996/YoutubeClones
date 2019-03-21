@@ -1,0 +1,17 @@
+
+body {
+    font-size: medium;
+    font-family: arial,sans-serif;
+    background:lightsteelblue; 
+} 
+
+h1 {
+    font-size: big;
+    font-family: arial,sans-serif;
+    font-style: normal;
+    color:  #775577;
+    background:lavender;
+    margin:25px;
+    border: 25px;
+    padding: 25px;
+} 
