@@ -51,6 +51,9 @@ function game ()  {
     } while (cont = 5)            
     } 
 
+
+    game(); 
+
   const playerSelection = "";
   const computerSelection = computerPlay();
   console.log(playRound(playerSelection,computerSelection));
