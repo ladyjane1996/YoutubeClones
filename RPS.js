@@ -7,53 +7,85 @@ alert("1");
 var playerScore = 0;
 var computerScore = 0;
 var tiedScore =0;
-var cont = 0; 
+
+
+
+function game ()  {
+
+  let playerSelection;
+
+  do {  
+
+     playerSelection = prompt("ROCK PAPER OR SCISSORS?").toLowerCase(); } while ( playerSelection !== "rock" && playerSelection !=="paper" &&  playerSelection !=="scissors");
+           
+    const computerSelection = computerPlay ();
+    computerPlay();
+    playRound (playerSelection, computerSelection);
+    console.log(playRound(playerSelection, computerSelection))
+
+  } 
 
 function computerPlay() {
   let pcSelect = Math.floor(Math.random()*3);
   if (pcSelect === 0 ) {
-    let selection = "Rock!"; 
+    return "rock";
   } else if (pcSelect === 1) {
-    let selection = "Paper!"; 
+    return "paper";
   } else {
-    let selection = "Scissors!"; 
+    return "scissors"; 
   }
-
-  return Selection;
 }
 //Computer Choice! 
-function playRound (PlayerSelection,computerSelection) 
-    let result =  "";
 
+function playRound (playerSelection, computerSelection) {
+  
     if (playerSelection === computerSelection) {
         tiedScore++;
-        result = "TIED!"; 
+        return " Tied Game. Try Again ";
 
-     } else if (playerSelection === "rock"&& computerSelection === "Scissors!" || playerSelection === "paper"&& computerSelection === "Rock!" 
-     || playerSelection === "scissors"&& computerSelection === "Paper!"  ) {
-        playerScore++;
-        result = "YOU WIN!"; 
-     } else {
-        computerScore++;
-        result = "Loser!"; 
-     }
-   } 
+      } else if (playerSelection==="rock"){ 
+        if (computerSelection === "scissors") {
+          playerScore ++;
+         return "you Rock, Rock Beat Scissors"
+        }else {
+          computerScore++;
+          return "you lose, Paper Beat Rock"
+         }
 
-function game ()  {
-
-    var Selection = prompt("ROCK PAPER OR SCISSORS?");
-    var playerSelection = Selection.toLowerCase();
-
-    do {
-        cont = cont + 1; 
-        playRound();
-        
-    } while (cont = 5)            
+       } else if ( playerSelection=== "paper" ) {
+        if (computerSelection==="rock") {
+          playerScore++;
+          return "You Rock, Paper beat Rock!"
+         
+        } else {
+          computerScore++
+          return "you Lose, Scissor Beat Paper!"
+        }
+      
+      } else if (playerSelection === "scissors") {
+        if (computerSelection === "paper") {
+          playerScore++
+          return "you rock!, Scissor Beat Paper!"
+        } else {
+          computerScore++
+          return "you Lose, Rock beat Scissor !"
+        }
+      }
     } 
 
+   function finalScore () {
 
-    game(); 
+    if (playerScore > computerScore) {
+    console.log ("YOU ROCk, YOU WIN!!");
+    }else if ( playerScore < computerScore){
+    console.log("Loser");
+    }else if (playerScore === computerScore) {
+    console.log ("DrawGame!");
+    }
+  }
 
-  const playerSelection = "";
-  const computerSelection = computerPlay();
-  console.log(playRound(playerSelection,computerSelection));
+    for( let cont = 0; cont < 5; cont ++) {
+      game(); 
+   }
+
+  finalScore();
